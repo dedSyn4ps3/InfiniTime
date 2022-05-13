@@ -73,12 +73,12 @@ WatchFaceDigital::WatchFaceDigital(DisplayApp* app,
   lv_label_set_text_static(backgroundLabel, "");
 
   heartbeatIcon = lv_label_create(lv_scr_act(), nullptr);
-  lv_label_set_text_static(heartbeatIcon, Symbols::heartBeat);
+  lv_label_set_text_static(heartbeatIcon, Symbols::health);
   lv_obj_set_style_local_text_color(heartbeatIcon, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0xCE1B1B));
   lv_obj_align(heartbeatIcon, lv_scr_act(), LV_ALIGN_IN_BOTTOM_LEFT, 0, 0);
 
   heartbeatValue = lv_label_create(lv_scr_act(), nullptr);
-  lv_obj_set_style_local_text_color(heartbeatValue, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0xCE1B1B));
+  lv_obj_set_style_local_text_color(heartbeatValue, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0xEA4444));
   lv_label_set_text_static(heartbeatValue, "");
   lv_obj_align(heartbeatValue, heartbeatIcon, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
 
@@ -89,8 +89,13 @@ WatchFaceDigital::WatchFaceDigital(DisplayApp* app,
 
   stepIcon = lv_label_create(lv_scr_act(), nullptr);
   lv_obj_set_style_local_text_color(stepIcon, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0x00FFE7));
-  lv_label_set_text_static(stepIcon, Symbols::shoe);
+  lv_label_set_text_static(stepIcon, Symbols::chart);
   lv_obj_align(stepIcon, stepValue, LV_ALIGN_OUT_LEFT_MID, -5, 0);
+
+  terminalIcon = lv_label_create(lv_scr_act(), nullptr);
+  lv_label_set_text_static(terminalIcon, Symbols::terminal);
+  lv_obj_set_style_local_text_color(terminalIcon, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0x00E0D5));
+  lv_obj_align(terminalIcon, lv_scr_act(), LV_ALIGN_IN_BOTTOM_MID, 0, 0);
 
   taskRefresh = lv_task_create(RefreshTaskCallback, LV_DISP_DEF_REFR_PERIOD, LV_TASK_PRIO_MID, this);
   Refresh();
